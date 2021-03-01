@@ -226,6 +226,37 @@ curl -d '{ "operation": "delete", "metadata": { "blobName": "myblob" }}' \
 ```
 {{% /codetab %}}
 
+**Delete snapshots only**
+
+{{< tabs Windows Linux >}}
+
+{{% codetab %}}
+```bash
+curl -d '{ \"operation\": \"delete\", \"metadata\": { \"blobName\": \"myblob\", \"DeleteSnapshotOptions\": \"only\"  }}' http://localhost:<dapr-port>/v1.0/bindings/<binding-name> 
+```
+{{% /codetab %}}
+
+{{% codetab %}}
+```bash
+curl -d '{ "operation": "delete", "metadata": { "blobName": "myblob", "DeleteSnapshotOptions": "only" }}' \
+      http://localhost:<dapr-port>/v1.0/bindings/<binding-name> 
+```
+
+**Delete file and snapshots**
+
+{{< tabs Windows Linux >}}
+
+{{% codetab %}}
+```bash
+curl -d '{ \"operation\": \"delete\", \"metadata\": { \"blobName\": \"myblob\", \"DeleteSnapshotOptions\": \"include\" }}' http://localhost:<dapr-port>/v1.0/bindings/<binding-name> 
+```
+{{% /codetab %}}
+
+{{% codetab %}}
+```bash
+curl -d '{ "operation": "delete", "metadata": { "blobName": "myblob", "DeleteSnapshotOptions": "include" }}' \
+      http://localhost:<dapr-port>/v1.0/bindings/<binding-name> 
+
 ## Metadata information
 
 By default the Azure Blob Storage output binding auto generates a UUID as the blob filename and is not assigned any system or custom metadata to it. It is configurable in the metadata property of the message (all optional).
@@ -247,6 +278,7 @@ Applications publishing to an Azure Blob Storage output binding should send a me
     "operation": "create"
 }
 ```
+
 
 ## Related links
 
