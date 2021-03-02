@@ -211,7 +211,7 @@ To perform a delete blob operation, invoke the Azure Blob Storage binding with a
 }
 ```
 
-#### Example
+#### Examples
 
 {{< tabs Windows Linux >}}
 
