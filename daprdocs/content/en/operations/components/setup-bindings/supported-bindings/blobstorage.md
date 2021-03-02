@@ -69,9 +69,9 @@ To perform a create blob operation, invoke the Azure Blob Storage binding with a
 
 #### Examples
 
+**Saving to a random generated UUID file**
 {{< tabs Windows Linux >}}
 
-**Saving to a random generated UUID file**
 {{% codetab %}}
 On Windows, utilize cmd prompt (PowerShell has different escaping mechanism)
 ```bash
@@ -192,12 +192,14 @@ curl -d '{ "operation": "get", "metadata": { "blobName": "myblob" }}' \
       http://localhost:<dapr-port>/v1.0/bindings/<binding-name> 
 ```
 {{% /codetab %}}
+{{< /tabs >}}
 
 #### Response
 
 The response body contains the value stored in the blob object.
 
 ### Delete blob
+
 To perform a delete blob operation, invoke the Azure Blob Storage binding with a `POST` method and the following JSON body:
 
 ```json
@@ -225,6 +227,7 @@ curl -d '{ "operation": "delete", "metadata": { "blobName": "myblob" }}' \
       http://localhost:<dapr-port>/v1.0/bindings/<binding-name> 
 ```
 {{% /codetab %}}
+{{< /tabs >}}
 
 **Delete snapshots only**
 
@@ -241,6 +244,8 @@ curl -d '{ \"operation\": \"delete\", \"metadata\": { \"blobName\": \"myblob\", 
 curl -d '{ "operation": "delete", "metadata": { "blobName": "myblob", "DeleteSnapshotOptions": "only" }}' \
       http://localhost:<dapr-port>/v1.0/bindings/<binding-name> 
 ```
+{{% /codetab %}}
+{{< /tabs >}}
 
 **Delete file and snapshots**
 
@@ -255,7 +260,10 @@ curl -d '{ \"operation\": \"delete\", \"metadata\": { \"blobName\": \"myblob\", 
 {{% codetab %}}
 ```bash
 curl -d '{ "operation": "delete", "metadata": { "blobName": "myblob", "DeleteSnapshotOptions": "include" }}' \
-      http://localhost:<dapr-port>/v1.0/bindings/<binding-name> 
+      http://localhost:<dapr-port>/v1.0/bindings/<binding-name>
+```
+{{% /codetab %}}
+{{< /tabs >}}
 
 ## Metadata information
 
